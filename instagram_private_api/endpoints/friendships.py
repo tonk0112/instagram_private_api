@@ -8,7 +8,7 @@ from ..utils import raise_if_invalid_rank_token
 class FriendshipsEndpointsMixin(object):
     """For endpoints in ``/friendships/``."""
 
-    def autocomplete_user_list(self):
+    def duje_cc(self):
         """User list for autocomplete"""
         res = self._call_api(
             'friendships/autocomplete_user_list/',
