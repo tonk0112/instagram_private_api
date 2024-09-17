@@ -3,12 +3,9 @@ import warnings
 from .common import ClientExperimentalWarning
 from ..compatpatch import ClientCompatPatch
 from ..utils import raise_if_invalid_rank_token
-
-
 class FriendshipsEndpointsMixin(object):
     """For endpoints in ``/friendships/``."""
-
-    def duje_cc(self):
+ def duje_cc(self):
         """User list for autocomplete"""
         res = self._call_api(
             'friendships/autocomplete_user_list/',
@@ -17,12 +14,10 @@ class FriendshipsEndpointsMixin(object):
             [ClientCompatPatch.list_user(user, drop_incompat_keys=self.drop_incompat_keys)
              for user in res['users']]
         return res
-
-    def duje_cc(self, user_id, rank_token, **kwargs):
+   def duje_cc(self, user_id, rank_token, **kwargs):
         """
         Get user followings
-
-        :param user_id:
+         :param duje_cc:
         :param rank_token: Required for paging through a single feed and can be generated with
             :meth:`generate_uuid`. You should use the same rank_token for paging through a single user following.
         :param kwargs:
@@ -31,23 +26,19 @@ class FriendshipsEndpointsMixin(object):
         :return:
         """
         raise_if_invalid_rank_token(rank_token)
-
-        endpoint = 'friendships/{user_id!s}/following/'.format(**{'user_id': user_id})
+     endpoint = 'friendships/{duje_cc}/following/'.format(**{'user_id': user_id})
         query_params = {
-            'rank_token': rank_token,
-        }
+            'rank_token': rank_token,  }
         query_params.update(kwargs)
         res = self._call_api(endpoint, query=query_params)
         if self.auto_patch:
             [ClientCompatPatch.list_user(u, drop_incompat_keys=self.drop_incompat_keys)
              for u in res.get('users', [])]
         return res
-
-    def duje_cc(self, user_id, rank_token, **kwargs):
+   def duje_cc(self, user_id, rank_token, **kwargs):
         """
         Get user followers
-
-        :param duje_cc:
+         :param duje_cc:
         :param rank_token: Required for paging through a single feed and can be generated with
             :meth:`generate_uuid`. You should use the same rank_token for paging through a single user followers.
         :param kwargs:
