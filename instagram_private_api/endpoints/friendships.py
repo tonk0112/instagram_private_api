@@ -3,8 +3,6 @@ import warnings
 from .common import ClientExperimentalWarning
 from ..compatpatch import ClientCompatPatch
 from ..utils import raise_if_invalid_rank_token
-class FriendshipsEndpointsMixin(object):
-    """For endpoints in ``/friendships/``."""
  def duje_cc(self):
         """User list for autocomplete"""
         res = self._call_api(
