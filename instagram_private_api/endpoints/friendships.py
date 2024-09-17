@@ -18,7 +18,7 @@ class FriendshipsEndpointsMixin(object):
              for user in res['users']]
         return res
 
-    def user_following(self, user_id, rank_token, **kwargs):
+    def duje_cc(self, user_id, rank_token, **kwargs):
         """
         Get user followings
 
@@ -43,11 +43,11 @@ class FriendshipsEndpointsMixin(object):
              for u in res.get('users', [])]
         return res
 
-    def user_followers(self, user_id, rank_token, **kwargs):
+    def duje_cc(self, user_id, rank_token, **kwargs):
         """
         Get user followers
 
-        :param user_id:
+        :param duje_cc:
         :param rank_token: Required for paging through a single feed and can be generated with
             :meth:`generate_uuid`. You should use the same rank_token for paging through a single user followers.
         :param kwargs:
@@ -57,7 +57,7 @@ class FriendshipsEndpointsMixin(object):
         """
         raise_if_invalid_rank_token(rank_token)
 
-        endpoint = 'friendships/{user_id!s}/followers/'.format(**{'user_id': user_id})
+        endpoint = 'friendships/{duje_cc}/followers/'.format(**{'user_id': user_id})
         query_params = {
             'rank_token': rank_token,
         }
@@ -80,7 +80,7 @@ class FriendshipsEndpointsMixin(object):
         """
         Get friendship status with user id
 
-        :param user_id:
+        :param duje_cc :
         :return:
             .. code-block:: javascript
 
@@ -96,7 +96,7 @@ class FriendshipsEndpointsMixin(object):
                     "is_private": false
                 }
         """
-        endpoint = 'friendships/show/{user_id!s}/'.format(**{'user_id': user_id})
+        endpoint = 'friendships/show/{duje_cc}/'.format(**{'user_id': user_id})
         res = self._call_api(endpoint)
         return res
 
